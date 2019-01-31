@@ -50,21 +50,21 @@ let GETnavTitles = document.querySelectorAll('a');
   GETnavTitles[3].textContent = 'Features'  ;
   GETnavTitles[4].textContent = 'About'     ;
   GETnavTitles[5].textContent = 'Contact'   ;
+    // green text
+    //GETnavTitles.style.color = 'green'
 
-// -- // Get Section -1- Text --> CLASS
-let getCta = document.querySelector('.cta-text h1')
+
+// -- // CTA
+let ctaText = document.querySelector('.cta-text')
+  console.log(ctaText)
   // Update Text Content
-  getCta.textContent = siteContent.cta.h1
+  ctaText.querySelector('h1').textContent = siteContent.cta.h1
+  // Update Button 
+  ctaText.querySelector('button').textContent = siteContent.cta.button
+  // Update Image
+let ctaImg = document.getElementById('cta-img');
+ctaImg.setAttribute('src', siteContent.cta["img-src"])
 
-// -- // Get Button 
-let GETbutton = document.querySelector('.cta-text button')
-  console.log(GETbutton);
-  GETbutton.textContent = siteContent.cta.button
-
-// -- // Get Section -1- Image --> ID
-let GETctaIMG = document.querySelector('#cta-img')
-  // Update IMG SRC
-  GETctaIMG.src = 'img/header-img.png';
 
 // -- // Get Main Content
 let GETmainContent_h4 = document.querySelectorAll('.text-content h4')
@@ -89,15 +89,33 @@ let GETmainContent_p = document.querySelectorAll('.text-content p')
 let img2 = document.querySelector('#middle-img');
 img2.src = 'img/mid-page-accent.jpg';
 
-// -- // Get Contact
+// // -- // Get Contact
 let GETcontact_h4 = document.querySelector('.contact h4');
   GETcontact_h4.textContent = siteContent.contact["contact-h4"]
 let GETcontact_p = document.querySelectorAll('.contact p');
-GETcontact_p[0].textContent = siteContent.contact.address
-GETcontact_p[1].textContent = siteContent.contact.phone
-GETcontact_p[2].textContent = siteContent.contact.email
+  GETcontact_p[0].textContent = siteContent.contact.address
+  GETcontact_p[1].textContent = siteContent.contact.phone
+  GETcontact_p[2].textContent = siteContent.contact.email
 console.log(GETcontact_p);
 
 // -- // Get Footer
 let GETfooter = document.querySelector('footer p')
 GETfooter.textContent = siteContent.footer.copyright
+
+// -- // Change Link Color
+GETnavTitles.forEach( (link) => {
+  link.style.color = 'green'
+})
+
+// -- // Create New Content
+NavLinks = document.getElementsByTagName("nav")[0];
+console.log(NavLinks)
+console.log(GETnavTitles)
+let createNewNode = (name) => {
+  let newNode = document.createElement("a");
+  newNode.innerHTML = name;
+  return newNode;
+}
+
+NavLinks.append(createNewNode("Extra Item 1"));
+NavLinks.prepend(createNewNode("Extra Item 2"));
