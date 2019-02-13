@@ -40,3 +40,82 @@ const siteContent = {
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+// -- // Get anchor Tags
+let GETnavTitles = document.querySelectorAll('a');
+  // update anchor tags
+  GETnavTitles[0].textContent = 'Services'  ;
+  GETnavTitles[1].textContent = 'Product'   ;
+  GETnavTitles[2].textContent = 'Vision'    ;
+  GETnavTitles[3].textContent = 'Features'  ;
+  GETnavTitles[4].textContent = 'About'     ;
+  GETnavTitles[5].textContent = 'Contact'   ;
+    // green text
+    //GETnavTitles.style.color = 'green'
+
+
+// -- // CTA
+let ctaText = document.querySelector('.cta-text')
+  console.log(ctaText)
+  // Update Text Content
+  ctaText.querySelector('h1').textContent = siteContent.cta.h1
+  // Update Button 
+  ctaText.querySelector('button').textContent = siteContent.cta.button
+  // Update Image
+let ctaImg = document.getElementById('cta-img');
+ctaImg.setAttribute('src', siteContent.cta["img-src"])
+
+
+// -- // Get Main Content
+let GETmainContent_h4 = document.querySelectorAll('.text-content h4')
+let GETmainContent_p = document.querySelectorAll('.text-content p')
+
+  GETmainContent_h4[0].textContent = siteContent["main-content"]["features-h4"]
+    GETmainContent_p[0].textContent = siteContent["main-content"]["features-content"]
+  
+  GETmainContent_h4[1].textContent = siteContent["main-content"]["about-h4"]
+    GETmainContent_p[1].textContent = siteContent["main-content"]["about-content"]
+  
+  GETmainContent_h4[2].textContent = siteContent["main-content"]["services-h4"]
+    GETmainContent_p[2].textContent = siteContent["main-content"]["services-content"]
+  
+  GETmainContent_h4[3].textContent = siteContent["main-content"]["product-h4"]
+    GETmainContent_p[3].textContent = siteContent["main-content"]["product-content"]
+  
+  GETmainContent_h4[4].textContent = siteContent["main-content"]["vision-h4"]
+    GETmainContent_p[4].textContent = siteContent["main-content"]["vision-content"]
+
+// -- // Get Second Img
+let img2 = document.querySelector('#middle-img');
+img2.src = 'img/mid-page-accent.jpg';
+
+// // -- // Get Contact
+let GETcontact_h4 = document.querySelector('.contact h4');
+  GETcontact_h4.textContent = siteContent.contact["contact-h4"]
+let GETcontact_p = document.querySelectorAll('.contact p');
+  GETcontact_p[0].textContent = siteContent.contact.address
+  GETcontact_p[1].textContent = siteContent.contact.phone
+  GETcontact_p[2].textContent = siteContent.contact.email
+console.log(GETcontact_p);
+
+// -- // Get Footer
+let GETfooter = document.querySelector('footer p')
+GETfooter.textContent = siteContent.footer.copyright
+
+// -- // Change Link Color
+GETnavTitles.forEach( (link) => {
+  link.style.color = 'green'
+})
+
+// -- // Create New Content
+NavLinks = document.getElementsByTagName("nav")[0];
+console.log(NavLinks)
+console.log(GETnavTitles)
+let createNewNode = (name) => {
+  let newNode = document.createElement("a");
+  newNode.innerHTML = name;
+  return newNode;
+}
+
+NavLinks.append(createNewNode("Extra Item 1"));
+NavLinks.prepend(createNewNode("Extra Item 2"));
